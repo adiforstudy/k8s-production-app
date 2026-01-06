@@ -8,11 +8,13 @@ spec:
   selector:
     matchLabels:
       app: web
+
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
+
   template:
     metadata:
       labels:
@@ -26,6 +28,7 @@ spec:
       containers:
         - name: web
           image: nginx:latest
+
           ports:
             - containerPort: 80
 
