@@ -30,6 +30,10 @@ autoscaling:
   maxReplicas: 5
   targetCPUUtilizationPercentage: 50
 
+ingress: 
+  enabled: true
+  host: web.local
+
 config:
   indexHtml: |
     <html>
