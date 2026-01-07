@@ -23,7 +23,13 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 
 ingress:
-  enabled: false
+  enabled: true
+  className: nginx
+  hosts:
+    - hosts: web.local
+      paths:
+        - path: /
+          pathType: Prefix
 
 httpRoute:
   enabled: false

@@ -4,18 +4,16 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
-
   selector:
     matchLabels:
-      app: webapp          # 🔴 THIS WAS MISSING OR WRONG
-
+      app: web
   template:
     metadata:
       labels:
-        app: webapp        # MUST MATCH selector
+        app: web
     spec:
       containers:
-        - name: webapp
-          image: nginx:latest
+        - name: web
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 80
