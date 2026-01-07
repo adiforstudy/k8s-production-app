@@ -3,42 +3,21 @@ replicaCount: 2
 image:
   repository: nginx
   tag: latest
-  pullPolicy: IfNotPresent
-
-labels:
-  app: web
 
 service:
   type: ClusterIP
   port: 80
 
+labels:
+  app: web
+
 serviceAccount:
   create: false
-  name: ""
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 5
-  targetCPUUtilizationPercentage: 80
 
 ingress:
   enabled: true
-  className: nginx
-  hosts:
-    - hosts: web.local
-      paths:
-        - path: /
-          pathType: Prefix
+  host: web.local
 
-httpRoute:
+autoscaling:
   enabled: false
 
-config:
-  indexHtml: |
-    <html>
-      <head><title>WebApp</title></head>
-      <body>
-        <h1>Helm WebApp is working 🚀</h1>
-      </body>
-    </html>
