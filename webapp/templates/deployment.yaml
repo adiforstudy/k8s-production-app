@@ -19,12 +19,22 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 80
+
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu | default "100m" }}
+              memory: {{ .Values.resources.requests.memory | default "128Mi" }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu | default "250m" }}
+              memory: {{ .Values.resources.limits.memory | default "256Mi" }}
+
           livenessProbe:
             httpGet:
               path: /
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 10
+
           readinessProbe:
             httpGet:
               path: /
