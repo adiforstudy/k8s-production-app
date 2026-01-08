@@ -1,0 +1,12 @@
+replicasCount: 3
+
+config:
+  enabled: true
+  indexHtml: |
+    <h1>PRODUCTION ENVIRONMENT</h1>
+
+ingress:
+  enabled: true
+
+autoscaling:
+enabled: false

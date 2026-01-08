@@ -1,0 +1,12 @@
+replicasCount: 1
+
+config:
+  enabled: true
+  indexHtml: |
+    <h1>DEV ENVIRONMENT </h1>
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
