@@ -7,6 +7,7 @@ config:
 
 ingress:
   enabled: true
+  host: webapp-prod.local
 
 resources:
   requests: 
