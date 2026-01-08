@@ -17,7 +17,7 @@ config:
   enabled: true
   indexHtml: |
     <h1>DEV ENVIRONMENT</h1>
-
+    <p>GitOps change test</p>
 ingress:
   enabled: false
 
