@@ -5,11 +5,18 @@ config:
   indexHtml: |
     <h1>DEV ENVIRONMENT </h1>
 
+service:
+  enabled: true
+  type: ClusterIP
+  port: 80
+
 ingress:
   enabled: false
 
 autoscaling:
-  enabled: true0
+  enabled: false
 
 deployment:
   enabled: true
+
+
