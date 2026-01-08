@@ -9,4 +9,7 @@ ingress:
   enabled: false
 
 autoscaling:
-  enabled: false
+  enabled: true0
+
+deployment:
+  enabled: true
