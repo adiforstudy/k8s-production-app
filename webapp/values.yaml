@@ -3,7 +3,6 @@ replicaCount: 3
 image:
   repository: nginx
   tag: latest
-  pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
@@ -13,31 +12,16 @@ config:
   enabled: true
   indexHtml: |
     <html>
-      <head><title>WebApp</title></head>
       <body>
-        <h1>Hello from Helm + ArgoCD</h1>
+        <h1>GitOps Works 🚀</h1>
       </body>
     </html>
 
 ingress:
   enabled: false
-  className: nginx
-  hosts:
-    - host: web.local
-      paths:
-        - path: /
-          pathType: Prefix
 
 httpRoute:
   enabled: false
 
 autoscaling:
   enabled: false
-  minReplicas: 1
-  maxReplicas: 5
-  targetCPUUtilizationPercentage: 80
-
-resources: {}
-nodeSelector: {}
-tolerations: []
-affinity: {}
