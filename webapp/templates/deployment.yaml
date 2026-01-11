@@ -17,6 +17,8 @@ spec:
       containers:
         - name: web
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagepullPolicy: {{ .Values.image.pullpolicy }}
+
           ports:
             - containerPort: 80
 
