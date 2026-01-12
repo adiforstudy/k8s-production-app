@@ -34,8 +34,9 @@ spec:
             httpGet:
               path: /
               port: 80
-            initialDelaySeconds: 10
+            initialDelaySeconds: 15
             periodSeconds: 10
+            failureThreshold: 3
 
           readinessProbe:
             httpGet:
@@ -43,3 +44,4 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
+            failureThreshold: 3
