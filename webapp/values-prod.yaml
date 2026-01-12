@@ -2,8 +2,8 @@ replicasCount: 3
 
 image:
   repository: ghcr.io/adiforstudy/webapp
-  tag: latest
-  pullPolicy: always
+  tag: e50cb15
+  pullPolicy: IfNotPresent
 
 config:
   enabled: true
