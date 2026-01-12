@@ -36,4 +36,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/adiforstudy/webapp:latest
+          tags: |
+            ghcr.io/adiforstudy/webapp:${{ github.sha }}
+            ghcr.io/adiforstudy/webapp:latest
