@@ -2,7 +2,7 @@ replicasCount: 3
 
 image:
   repository: ghcr.io/adiforstudy/webapp
-  tag: latest
+  tag: "788b9d302f1ac4fb686f922e32dcae4287a26ab2"
   pullPolicy: Always
 
 config:
