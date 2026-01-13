@@ -30,10 +30,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push amd64 image (immutable tag)
+      - name: Build and push multi-arch image
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64
           push: true
-          tags: ghcr.io/adiforstudy/webapp:${{ github.sha }}
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/adiforstudy/webapp:latest
+            ghcr.io/adiforstudy/webapp:${{ github.sha }}
+
