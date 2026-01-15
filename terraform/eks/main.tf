@@ -31,9 +31,9 @@ module "eks" {
       instance_types = ["t3.micro"]
       capacity_type  = "ON_DEMAND"
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      min_size     = 2
+      max_size     = 3
+      desired_size = 2
     }
   }
 }
