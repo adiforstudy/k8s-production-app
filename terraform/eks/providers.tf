@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 1.5"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -8,13 +10,5 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
-}
-
-resource "aws_vpc" "main" {
-  cidr_block = var.vpc_cidr
-
-  tags = {
-    Name = "devops-vpc"
-  }
+  region = "eu-central-1"
 }
