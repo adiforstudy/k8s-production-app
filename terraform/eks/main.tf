@@ -18,7 +18,7 @@ module "eks" {
 
   cluster_endpoint_public_access  = true
   cluster_endpoint_private_access = false
- 
+
   enable_cluster_creator_admin_permissions = true
 
   cluster_enabled_log_types   = []
@@ -31,9 +31,9 @@ module "eks" {
       instance_types = ["t3.small"]
       capacity_type  = "ON_DEMAND"
 
-      min_size     = 2
+      min_size     = 3
       max_size     = 3
-      desired_size = 2
+      desired_size = 3
     }
   }
 }
