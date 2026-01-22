@@ -3,6 +3,7 @@ name: Build and Push Docker Image (GHCR)
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,12 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug workspace
+      - name: Debug repo content
         run: |
           pwd
           ls -la
           echo "---- Dockerfile ----"
-          cat Dockerfile
+          test -f Dockerfile && cat Dockerfile || (echo "Dockerfile missing" && exit 1)
           echo "---- app folder ----"
           ls -la app || true
 
@@ -44,6 +45,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/adiforstudy/k8s-production-app:latest
             ghcr.io/adiforstudy/k8s-production-app:${{ github.sha }}

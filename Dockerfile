@@ -1,7 +1,8 @@
 FROM nginx:alpine
-RUN echo "### USING ROOT DOCKERFILE ###"
 
-COPY index.html /usr/share/nginx/html/index.html
-COPY app/ /usr/share/nginx/html/
+WORKDIR /usr/share/nginx/html
+
+COPY index.html ./index.html
+COPY app/ ./app/
 
 EXPOSE 80
