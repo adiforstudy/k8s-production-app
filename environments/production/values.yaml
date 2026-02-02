@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/adiforstudy/k8s-production-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+config:
+  indexHtml: |
+    <html>
+      <body>
+        <h1>ArgoCD Helm App</h1>
+      </body>
+    </html>
+
+ingress:
+  enabled: false
+
+httpRoute:
+  enabled: false
+
+hpa:
+  enabled: false
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
