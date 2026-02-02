@@ -18,7 +18,13 @@ config:
     </html>
 
 ingress:
-  enabled: false
+  enabled: true
+  className: nginx
+  hosts:
+    - host: web.local
+      paths:
+        - path: /
+          pathType: Prefix
 
 httpRoute:
   enabled: false
