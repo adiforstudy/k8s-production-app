@@ -1,28 +1,24 @@
-replicaCount: 3
+replicaCount: 2
 
 image:
-  repository: ghcr.io/adiforstudy/webapp
-  tag: Latest
+  repository: ghcr.io/adiforstudy/k8s-production-app
+  tag: latest
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
   port: 80
 
-config:
-  enabled: true
-  indexHtml: |
-    <html>
-      <body>
-        <h1>GitOps Works 🚀</h1>
-      </body>
-    </html>
-
 ingress:
-  enabled: false
+  enabled: true
+  className: nginx
+  host: web.local
+  path: /
 
-httpRoute:
-  enabled: false
-
-autoscaling:
-  enabled: false
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
